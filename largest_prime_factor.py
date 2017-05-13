@@ -63,14 +63,33 @@ def find_LPF(n):
         digit -= 1
         loops += 1
         
+#DEVELOPMENT TOOL       
 def test_behavior():
     n = 463664
     dig = n//2
     while dig > 1:
         print(dig,':',n%dig)
         dig -= 1
-    
-    
+        
+        
+#Returns the unique prime factorization of a given number n
+def factorize(n):
+    divisor = 2
+    while n > 0:
+        rem = n%divisor
+        if rem == 0:
+            n = n//divisor
+            
+
+#Generates THE NEXT PRIME after n
+def getNextPrime(n):
+    assert isprime1(n)
+    dig = n + 2 #f the code makes it to this point, we need not consider evenly
+    #numbers. They are NOT prime
+    while True:
+        if isprime1(dig): return dig #This is a lie here, this is actually very
+        #complex loop
+        dig += 2
     
         
 
