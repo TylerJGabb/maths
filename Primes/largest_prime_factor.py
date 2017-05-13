@@ -25,9 +25,11 @@ def UPF(n):
     digit = n//2
     loops = -1
     while True:
+        
         loops += 1
         if loops %1000000 == 0:
             print(n,':',digit)
+        
         last = int(str(digit)[-1])
         if digit > 10:
             if last not in (1,3,7,9):
@@ -46,14 +48,34 @@ def UPF(n):
                 digit = n//2
                 continue
         digit -= 2 if digit > 10 else 1
-        if digit < 0: return 'Something is broken'
+        if digit <= 0: break
     factors.append(n)
     return factors
-
-     
-        
     
+    
+def LPF(n):
+    digit = n//2
+    loops = -1
+    while True:
+        loops += 1
+        #if loops %100000000 == 0: print(digit)
+        if digit > 10:
+            last = int(str(digit)[-1])
+            if last == 5: #Numbers ending in 5 are not prime
+                digit -= 2 #The possible prime will be 2 less than digit
+                continue
+            if last not in (1,3,7,9): #Even numbers are not prime
+                digit -= 1 #the next possible prime will be 1 less than digit
+                continue
+        mod = n%digit
+        if mod == 0:
+            #print('mod zero')
+            if isprime1(digit):
+                return digit
+        digit -= 2 if digit > 10 else 1
+    assert False, 'Number given is Prime'
         
+            
 #DEVELOPMENT TOOL       
 def test_behavior():
     n = 463664
@@ -65,7 +87,7 @@ def test_behavior():
 
 
 #Generates THE NEXT PRIME after n
-def getNextPrime(n):
+def GNP(n):
     assert isprime1(n)
     dig = n + 2 #f the code makes it to this point, we need not consider evenly
     #numbers. They are NOT prime
@@ -73,6 +95,9 @@ def getNextPrime(n):
         if isprime1(dig): return dig #This is a lie here, this is actually very
         #complex loop
         dig += 2
+        
+        
+
         
     
     
