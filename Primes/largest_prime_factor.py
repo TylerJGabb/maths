@@ -20,10 +20,38 @@ def isprime1(n):
     return True
  
 
-def LPF(n):
-    #Need to start with 2, and move up to find next prime factors
-    #Then when done factoring, return the largest factor....
-    #That's what makes this take a while. Perhaps consider a recursive function
+def UPF(n):
+    factors = []
+    digit = n//2
+    loops = -1
+    while True:
+        loops += 1
+        if loops %1000000 == 0:
+            print(n,':',digit)
+        last = int(str(digit)[-1])
+        if digit > 10:
+            if last not in (1,3,7,9):
+                digit -= 1 #if the digit is not odd
+                continue   #make it odd
+            if last == 5:
+                digit -= 2
+                continue
+        mod = n%digit
+        if mod == 0:
+            if isprime1(digit):
+                n = n//digit
+                factors.append(digit)
+                if n in (2,3,5,7):
+                    break
+                digit = n//2
+                continue
+        digit -= 2 if digit > 10 else 1
+        if digit < 0: return 'Something is broken'
+    factors.append(n)
+    return factors
+
+     
+        
     
         
 #DEVELOPMENT TOOL       
