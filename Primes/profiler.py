@@ -20,7 +20,7 @@ even though It may or may not be neeeded.
 '''
 import time
 import math
-import largest_prime_factor as LPF
+import largest_prime_factor as Primes
 
 class Input:
     #The Input class. Purpose is to facilitate input from the user to 

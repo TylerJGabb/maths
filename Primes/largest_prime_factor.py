@@ -6,6 +6,7 @@ import time as T
 ## 1,3,7,9
 
 def isprime1(n):
+    #print('testing primality')
     if n < 10: 
         #print('stage1')
         return n in (2,3,5,7)
@@ -15,27 +16,29 @@ def isprime1(n):
     top = M.floor(M.sqrt(n))
     #print('stage3')
     #print(top)
+    i = 0
     for digit in range(2,top+1):
+        #if i%10000 == 0: print('loop',i,digit)
         if n%digit == 0: return False
+        i += 1
     return True
  
-
+#returns the unique prime factorization of a given number
 def UPF(n):
     factors = []
     digit = n//2
     loops = -1
     while True:
-        
         loops += 1
-        if loops %1000000 == 0:
+        if loops%1000000 == 0:
             print(n,':',digit)
         
         last = int(str(digit)[-1])
         if digit > 10:
-            if last not in (1,3,7,9):
+            if last not in (1,3,7,9) and last != 5: ##FIX THIS
                 digit -= 1 #if the digit is not odd
                 continue   #make it odd
-            if last == 5:
+            elif last == 5:
                 digit -= 2
                 continue
         mod = n%digit
@@ -56,6 +59,7 @@ def UPF(n):
 def LPF(n):
     digit = n//2
     loops = -1
+    mod = '?'
     while True:
         loops += 1
         #if loops %100000000 == 0: print(digit)
@@ -67,9 +71,9 @@ def LPF(n):
             if last not in (1,3,7,9): #Even numbers are not prime
                 digit -= 1 #the next possible prime will be 1 less than digit
                 continue
+        assert digit > 0,str(n)+' is prime'
         mod = n%digit
         if mod == 0:
-            #print('mod zero')
             if isprime1(digit):
                 return digit
         digit -= 2 if digit > 10 else 1
@@ -88,14 +92,17 @@ def test_behavior():
 
 #Generates THE NEXT PRIME after n
 def GNP(n):
-    assert isprime1(n)
-    dig = n + 2 #f the code makes it to this point, we need not consider evenly
-    #numbers. They are NOT prime
+    if n == 2: return 3
+    if n == 3: return 5
+    if n == 5: return 7
+    if n == 7: return 11
+    last = int(str(n)[-1])
+    n += 1 if last%2 == 0 else 2
+    assert int(str(n)[-1]) % 2 != 0
     while True:
-        if isprime1(dig): return dig #This is a lie here, this is actually very
-        #complex loop
-        dig += 2
-        
+        #print(n)
+        if isprime1(n): return n
+        n += 2 if str(n)[-1] != '3' else 4
         
 
         
