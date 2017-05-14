@@ -35,12 +35,17 @@ def UPF(n):
         
         last = int(str(digit)[-1])
         if digit > 10:
-            if last not in (1,3,7,9) and last != 5: ##FIX THIS
-                digit -= 1 #if the digit is not odd
-                continue   #make it odd
-            elif last == 5:
+            if last == 5:
                 digit -= 2
                 continue
+            if last == 6:
+                digit -= 3
+                continue
+            if last in (0,2,4,8): ##FIX THIS
+                digit -= 1 
+                continue   
+        #if the code reaches this point, we are only dealing with
+        #numbers which are possibly prime
         mod = n%digit
         if mod == 0:
             if isprime1(digit):
@@ -51,9 +56,10 @@ def UPF(n):
                 digit = n//2
                 continue
         digit -= 2 if digit > 10 else 1
-        if digit <= 0: break
+        #if digit <= 0: break
     factors.append(n)
     return factors
+    
     
     
 def LPF(n):
