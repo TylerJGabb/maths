@@ -32,18 +32,19 @@ def UPF(n):
         loops += 1
         if loops%1000000 == 0:
             print(n,':',digit)
-        
+        ##-----------------------------------------------
         last = int(str(digit)[-1])
         if digit > 10:
             if last == 5:
                 digit -= 2
-                continue
-            if last == 6:
-                digit -= 3
-                continue
-            if last in (0,2,4,8): ##FIX THIS
+                continue                ## Bringing digit
+            if last == 6:               ## to the nearest
+                digit -= 3              ## Prime number
+                continue 
+            if last in (0,2,4,8):
                 digit -= 1 
                 continue   
+        ##----------------------------------------------
         #if the code reaches this point, we are only dealing with
         #numbers which are possibly prime
         mod = n%digit
@@ -56,7 +57,7 @@ def UPF(n):
                 digit = n//2
                 continue
         digit -= 2 if digit > 10 else 1
-        #if digit <= 0: break
+        if digit <= 0: return str(n)+' is prime!'
     factors.append(n)
     return factors
     
@@ -68,7 +69,7 @@ def LPF(n):
     mod = '?'
     while True:
         loops += 1
-        #if loops %100000000 == 0: print(digit)
+        if loops %10000000 == 0: print(digit)
         if digit > 10:
             last = int(str(digit)[-1])
             if last == 5: #Numbers ending in 5 are not prime
@@ -83,7 +84,6 @@ def LPF(n):
             if isprime1(digit):
                 return digit
         digit -= 2 if digit > 10 else 1
-    assert False, 'Number given is Prime'
         
             
 #DEVELOPMENT TOOL       
