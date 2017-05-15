@@ -1,6 +1,7 @@
 import sys
 import math as M
-import time as T
+#import time as T
+import numpy
 ##What is the largest prime factor of a number n
 ##Prime numbers, if they are more than 1 digit, end in 
 ## 1,3,7,9
@@ -25,6 +26,7 @@ def isprime1(n):
  
 #returns the unique prime factorization of a given number
 def UPF(n):
+    N = n
     factors = []
     digit = n//2
     loops = -1
@@ -59,6 +61,8 @@ def UPF(n):
         digit -= 2 if digit > 10 else 1
         if digit <= 0: return str(n)+' is prime!'
     factors.append(n)
+    assert mult_list_rec(factors) == N,\
+        'ERROR: Prmes.UPF Factorization incorrect'
     return factors
     
     
@@ -112,7 +116,17 @@ def GNP(n):
         if isprime1(n): return n
         n += 2 if str(n)[-1] != '3' else 4
         
+        
+#recursively multiplies the elements of a given list together 
+#and returns the product       
+def mult_list_rec(L):
+    if L:
+        return L[0]*mult_list_rec(L[1:])
+    return 1
+        
 
+def epsila(xnew,xold):
+    return 100*numpy.abs((xnew-xold)/xnew)
         
     
     
