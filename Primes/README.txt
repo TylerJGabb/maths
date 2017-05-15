@@ -5,6 +5,15 @@ fast algorithms for factoring them.
 *MET GOAL: find largest prime factor the fastest way in python
 *NEW GOAL: Streamline decrement in UPF, to skip nonprime numbers
 
+5/15/2017-------------------------------------------
+I've managed to perform the first few experiments. As far as I can tell, There was some flawed
+thinking on my part. I was trying to generate new prime numbers and then factor them, however
+primes can not be factored, so I don't trust the results aquired.
+
+I think I need to re-think what I am trying to measure here
+
+
+
 5/13/2017--------------------------------------------
 
 *Fixed UPF (unique prime factorization function)
@@ -23,7 +32,7 @@ Primes.LPF(n), gives the largest prime factor of n
 Primes.GNP(n), gives THE NEXT PRIME after the integer n
 Primes.UPF(n), returns a list, containing the unique prime factors of n
 
----END OF 5/15/2017 UPDATE------------------------------------
+---END OF 5/13/2017 UPDATE------------------------------------
 
 Although Python is not the right language for trying to write FAST algorithms to do this,
 if I can find a way to impliment it in python, moving to a faster language will be easier.
