@@ -98,6 +98,8 @@ def test_behavior():
 
 #Generates THE NEXT PRIME after n
 def GNP(n):
+    assert n >= 0
+    if n in (0,1): return 2
     if n == 2: return 3
     if n == 3: return 5
     if n == 5: return 7
