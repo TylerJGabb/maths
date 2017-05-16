@@ -20,7 +20,7 @@ even though It may or may not be neeeded.
 '''
 import time
 import math
-import largest_prime_factor as Primes
+import primes_module as Primes
 import matplotlib.pyplot as pyp
 import numpy
 
@@ -98,6 +98,8 @@ class Input:
         '''
     
 class Experiment:
+    #this experiment is not generating meaningful results. Will revisit
+    #this idea again some time
     @classmethod
     def experiment1(cls,start,num_to_gen,fname):
         #consider keeping track of gaps between primes
@@ -164,9 +166,34 @@ class Experiment:
         tic = time.time()
         return tic-toc
     
+class Analysis:
+    #ANalysis class
+    #facilitates some I/O to generate plots and data associated with
+    #an experiment. I have yet to develop a universal parser, but I don'taken
+    #think it would be that hard to ask the user to define some attributes
+    #about the data being analyzed
+    file = None #the file holding output data for a given experiment
     
-   
-    
+    @classmethod
+    def get_data_file(cls):
+        file_opened_sucesfully = False
+        while not file_opened_sucesfully:
+            fname = input('Input filename: ')
+            try:
+                file = open(fname)
+                lines = file.readlines()
+            except FileNotFoundError:
+                print('ERROR:',fname,'does not exist')
+                continue
+            except: #is naked on purpose
+                print('ERROR: something went wrong, try again')
+                continue
+            file_opened_sucesfully = True
+        cls.file = file
+        
+    def interperate_data_file(cls):
+        pass
+                
 def main():
     Input.get_bounds()
     Input.get_fname()

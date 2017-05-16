@@ -3,7 +3,19 @@ fast algorithms for factoring them.
 
 *MET GOAL: adding Unique prime facoritazion function
 *MET GOAL: find largest prime factor the fastest way in python
-*NEW GOAL: Streamline decrement in UPF, to skip nonprime numbers
+*MET GOAL: Streamline decrement in UPF, to skip nonprime numbers
+*NEW GOAL(5/16): Research algorithms for prime factorization and prime seive, devlop several
+	functions which impliment different algorithms, and compare their results for numbers
+	whose digit counts are between 1 and 20
+
+
+5/16/2017-----------------------------------------
+SEE NEW GOAL(5/16)
+Added some classes and methods in the profiler module. Analysis class takes care of
+Analyzing generated data. Planning on making it universal, checking the file for 
+any erroneous data, and getting input from the user, recursively, until every
+attribute of the data given can be assigned accordingly
+
 
 5/15/2017-------------------------------------------
 I've managed to perform the first few experiments. As far as I can tell, There was some flawed
