@@ -7,6 +7,7 @@ fast algorithms for factoring them.
 *NEW GOAL(5/16): Research algorithms for prime factorization and prime seive, devlop several
 	functions which impliment different algorithms, and compare their results for numbers
 	whose digit counts are between 1 and 20
+*NEW GOAL: begin developing keys for encrypting messages. 
 
 
 5/16/2017-----------------------------------------
