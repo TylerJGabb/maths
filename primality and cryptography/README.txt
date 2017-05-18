@@ -9,6 +9,8 @@ fast algorithms for factoring them.
 	whose digit counts are between 1 and 20
 *NEW GOAL: begin developing keys for encrypting messages. 
 
+5/18/2017
+Began working with haskell. It is a work in progress. 
 
 5/16/2017-----------------------------------------
 SEE NEW GOAL(5/16)

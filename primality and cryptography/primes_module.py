@@ -17,11 +17,8 @@ def isprime1(n):
     top = M.floor(M.sqrt(n))
     #print('stage3')
     #print(top)
-    i = 0
     for digit in range(2,top+1):
-        #if i%10000 == 0: print('loop',i,digit)
         if n%digit == 0: return False
-        i += 1
     return True
  
 #returns the unique prime factorization of a given number
@@ -59,10 +56,10 @@ def UPF(n):
                 digit = n//2
                 continue
         digit -= 2 if digit > 10 else 1
-        if digit <= 0: return str(n)+' is prime!'
+        if digit <= 0: break
     factors.append(n)
     assert mult_list_rec(factors) == N,\
-        'ERROR: Prmes.UPF Factorization incorrect'
+        'ERROR IN Prmes.UPF(): Factorization incorrect'
     return factors
     
     
@@ -124,7 +121,8 @@ def mult_list_rec(L):
         return L[0]*mult_list_rec(L[1:])
     return 1
         
-
+#returns approximate error between iterative solutions one iteration apart
+#used to determine when to stop an interative process
 def epsila(xnew,xold):
     return 100*numpy.abs((xnew-xold)/xnew)
         
