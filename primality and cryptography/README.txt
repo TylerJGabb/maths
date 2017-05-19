@@ -1,16 +1,29 @@
 This project is mainly concerned with prime numbers and developing
 fast algorithms for factoring them. 
 
+#####################################################################
+#                                                                   #
+#_______WORKING DEMO'S:_____________________________________________#
+#                                                                   #
+# (1) - PYTHON_DEMO.py                                              #
+#                                                                   #
+#####################################################################
+
 *MET GOAL: adding Unique prime facoritazion function
 *MET GOAL: find largest prime factor the fastest way in python
 *MET GOAL: Streamline decrement in UPF, to skip nonprime numbers
 *NEW GOAL(5/16): Research algorithms for prime factorization and prime seive, devlop several
 	functions which impliment different algorithms, and compare their results for numbers
 	whose digit counts are between 1 and 20
-*NEW GOAL: begin developing keys for encrypting messages. 
+*MET GOAL: begin developing keys for encrypting messages.
+
 
 5/18/2017
-Began working with haskell. It is a work in progress. 
+-Hurdles to overcome:
+	generating large primes, consider a separate primes database
+	taking large powers, or getting reasonable decryption key
+-Began working with haskell. It is a work in progress.
+ 
 
 5/16/2017-----------------------------------------
 SEE NEW GOAL(5/16)
@@ -36,12 +49,6 @@ I think I need to re-think what I am trying to measure here
 *Fixed GNP (generate next prime function) to work for any positive integer
 *Added profiler.py file, containing methods to be used for running experiments
     to generate plots and timing profiles for the functions
-    
-TO ACCESS THBE FUNCTIONS, IN CONSOLE TYPE:
-from profiler import *
-
-after you have done this, you will have access to the functions
-via the following
 
 Primes.LPF(n), gives the largest prime factor of n
 Primes.GNP(n), gives THE NEXT PRIME after the integer n

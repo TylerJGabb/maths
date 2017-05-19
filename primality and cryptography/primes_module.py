@@ -2,9 +2,6 @@ import sys
 import math as M
 #import time as T
 import numpy
-##What is the largest prime factor of a number n
-##Prime numbers, if they are more than 1 digit, end in 
-## 1,3,7,9
 
 def isprime1(n):
     #print('testing primality')
@@ -117,9 +114,7 @@ def GNP(n):
 #recursively multiplies the elements of a given list together 
 #and returns the product       
 def mult_list_rec(L):
-    if L:
-        return L[0]*mult_list_rec(L[1:])
-    return 1
+    return L[0]*mult_list_rec(L[1:]) if L else 1
         
 #returns approximate error between iterative solutions one iteration apart
 #used to determine when to stop an interative process

@@ -1,0 +1,16 @@
+**********************************************************************************************
+This demo uses RANDOM 6-bit encryption. This is only to show that I understand               *
+the concepts of RSA encryption. It is my goal to develop methods to actually                 *
+do RSA encryption up to and including 4000bit encryption, quickly. I may be forced           *
+to move to a language which is purely functional, or closer to the machine to accomplish     *
+this...                                                                                      *
+**********************************************************************************************
+Input a mesage.
+The mesage can only contain characters from the following sequences:
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~
+\t\n\r\x0b\x0c
+1234567890
+and space
+- - - - - -
